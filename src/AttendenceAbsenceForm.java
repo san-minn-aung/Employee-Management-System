@@ -150,6 +150,11 @@ private void Resource_Loader() throws SQLException{
         setTitle("EMPLOYEE MANAGEMENT SYSTEM                                           ATTENDENCE RECORD");
         setLocation(new java.awt.Point(300, 100));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -197,7 +202,7 @@ private void Resource_Loader() throws SQLException{
         });
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ALL DEPARTMENTS", "IT", "FINANCIAL", "HR", "SECURITY" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DEPARTMENTS", "IT", "FINANCE", "HR", "SECURITY" }));
         jComboBox1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,8 +235,8 @@ private void Resource_Loader() throws SQLException{
                                 .addComponent(jLabel2)
                                 .addGap(63, 63, 63))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(46, 46, 46)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -428,6 +433,11 @@ private void Resource_Loader() throws SQLException{
         String query=jComboBox1.getSelectedItem().toString();
         filter(query);
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        new HomePageForm().setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
 
 public  boolean isExitingDate() throws SQLException{
 
